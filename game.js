@@ -5,6 +5,12 @@ var userClickedPattern = [];
 var started = false;
 
 // keydown to start gamePattern
+$("input").click(function(){
+    if (started === false) {
+      nextSequence();
+      started =! started;
+    }
+});
 
 $(document).on("keydown",function(){
     if (started === false) {
@@ -65,7 +71,7 @@ function checkAnswer(currentLevel) {
      $("body").addClass("game-over");
      setTimeout(function(){ $("body").removeClass("game-over")}, 200);
 
-     $("#level-title").html("Game Over, Press Any Key to Restart.");
+     $("#level-title").html("Game Over, Press a Key or Start game to Restart.");
 
      started = false;
 
